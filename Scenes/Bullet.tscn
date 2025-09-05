@@ -76,7 +76,7 @@ script = ExtResource("1_0fnjo")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_04o5h")
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0w84i")
 animation = &"fire_bird"
 autoplay = "fire_bird"

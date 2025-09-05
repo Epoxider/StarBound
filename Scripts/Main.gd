@@ -17,5 +17,5 @@ func _process(delta):
 func _on_player_shoot(bullet, direction, position):
 	add_child(bullet)
 	bullet.position = position
-	bullet.velocity = direction * bullet.speed
+	bullet.direction = direction * bullet.speed
 

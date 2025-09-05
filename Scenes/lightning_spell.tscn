@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjt2xgd42e8sj"]
+
+[ext_resource type="PackedScene" uid="uid://c5h06y5t1pd5s" path="res://Scenes/projectile.tscn" id="1_m4on4"]
+[ext_resource type="Texture2D" uid="uid://xkr71bvdj8he" path="res://Art/SpellEffects/lightning/lightning_v2_5.png" id="2_3xupw"]
+[ext_resource type="Texture2D" uid="uid://c38fp2i2fmdrx" path="res://Art/SpellEffects/lightning/lightning_v2_6.png" id="2_80x7q"]
+[ext_resource type="Texture2D" uid="uid://o15rx10pvs7p" path="res://Art/SpellEffects/lightning/lightning_v2_7.png" id="3_dv5pc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_giyu5"]
+size = Vector2(50, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w2u53"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3xupw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_80x7q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dv5pc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="LightningSpell" instance=ExtResource("1_m4on4")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_giyu5")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_w2u53")
+autoplay = "default"
+frame = 1
+frame_progress = 0.559424
