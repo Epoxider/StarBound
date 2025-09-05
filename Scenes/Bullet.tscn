@@ -72,7 +72,6 @@ animations = [{
 [node name="Bullet" type="Area2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_0fnjo")
-speed = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_04o5h")
