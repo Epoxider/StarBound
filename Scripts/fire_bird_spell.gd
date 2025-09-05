@@ -10,3 +10,4 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	var collision_info = move_and_collide(velocity.normalized() * speed)
+	print(collision_info)

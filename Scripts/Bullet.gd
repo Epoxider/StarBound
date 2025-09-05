@@ -1,7 +1,7 @@
 extends Area2D
 
-var speed : int = 1
-var direction : Vector2
+@export var speed : int = 15
+var velocity : Vector2
 var TTL : int # Time To Live
 
 # Called when the node enters the scene tree for the first time.
@@ -11,7 +11,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position += direction * speed
+	position += velocity * speed * delta
 	
 
 func removeSpell():
@@ -20,6 +20,6 @@ func removeSpell():
 
 func _on_body_entered(body):
 	if not body is CharacterBody2D:
-		print('collision deteteceted')
+		print('collision detected')
 		removeSpell()
 
