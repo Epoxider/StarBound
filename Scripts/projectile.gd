@@ -1,6 +1,7 @@
 extends Area2D
 
 var direction: Vector2
+
 @export var damage: int = 10
 @export var speed: int = 15
 
@@ -16,12 +17,10 @@ func _process(delta):
 	_set_sprite_animation()
 
 func _on_body_entered(body):
-	if body.has_method("apply_damage"):
-		body.apply_damage(damage)
+	if body.has_method("take_damage"):
+		body.take_damage(damage)
 	queue_free()
 
-func _on_Timer_timeout():
-	queue_free()
 	
 func _set_sprite_animation():
 	# Flip sprite based on aiming direction, not movement direction.

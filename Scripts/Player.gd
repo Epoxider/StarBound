@@ -1,8 +1,14 @@
 extends CharacterBody2D
 
 ## Signal to be emitted when the player shoots a projectile.
+signal player_died
 signal player_shot_bullet(bullet_instance, rotation, position)
 
+@export var max_health:int
+@export var speed : int = 300
+
+
+@onready var health:int = max_health
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var firing_point: Node2D = $FiringPoint
 @onready var bullet_spawn_point: Marker2D = $FiringPoint/Marker2D
@@ -11,7 +17,6 @@ signal player_shot_bullet(bullet_instance, rotation, position)
 const BULLET_SCENE = preload("res://Scenes/bullet.tscn")
 const LIGHTNING_SCENE = preload("res://Scenes/lightning_spell.tscn")
 
-var speed : int = 300
 
 func _process(_delta):
 	# Make the firing point look at the mouse position for aiming.
@@ -59,3 +64,14 @@ func _set_sprite_animation():
 		animated_sprite.play("attack")
 	else:
 		animated_sprite.play("idle")
+		
+func take_damage(amount:int):
+	health -= amount
+	health = max(health, 0)
+	print("Player took %d damage, health now %d" % [amount, health])
+	if health <= 0:
+		_die()
+
+func _die():
+	print("Player has died!")
+	# TODO: death animation, respawn, etc.
