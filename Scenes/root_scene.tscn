@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bapakf2pmt701"]
+[gd_scene load_steps=10 format=3 uid="uid://bapakf2pmt701"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_2joys"]
 [ext_resource type="Texture2D" uid="uid://oiifa67cqm2o" path="res://Art/World/Solaria Demo Tiles.png" id="2_no20r"]
 [ext_resource type="PackedScene" uid="uid://vd7xhee2h0td" path="res://Scenes/player.tscn" id="3_uxtbm"]
+[ext_resource type="PackedScene" uid="uid://co63ed12l7j4j" path="res://Scenes/beholder.tscn" id="5_6qr67"]
 [ext_resource type="Script" path="res://Scripts/BulletManager.gd" id="5_08j6x"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_cehxk"]
@@ -1150,3 +1151,12 @@ layer_1/tile_data = PackedInt32Array(524294, 458752, 5, 589830, 458752, 6, 52429
 
 [node name="BulletManager" type="Node2D" parent="."]
 script = ExtResource("5_08j6x")
+
+[node name="Beholder" parent="." instance=ExtResource("5_6qr67")]
+position = Vector2(-40, -177)
+
+[node name="Beholder2" parent="." instance=ExtResource("5_6qr67")]
+position = Vector2(241, -244)
+
+[node name="Beholder3" parent="." instance=ExtResource("5_6qr67")]
+position = Vector2(359, -24)

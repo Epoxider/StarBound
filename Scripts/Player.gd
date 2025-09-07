@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 ## Signal to be emitted when the player shoots a projectile.
 signal player_died
@@ -7,6 +7,8 @@ signal player_shot_bullet(bullet_instance, rotation, position)
 @export var max_health:int
 @export var speed : int = 300
 
+var input_direction: Vector2 = Vector2.ZERO
+var aim_direction: Vector2 = Vector2.ZERO
 
 @onready var health:int = max_health
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -21,42 +23,36 @@ const LIGHTNING_SCENE = preload("res://Scenes/lightning_spell.tscn")
 func _process(_delta):
 	# Make the firing point look at the mouse position for aiming.
 	firing_point.look_at(get_global_mouse_position())
-	
+	# Get the input direction for movement.
+	input_direction = Input.get_vector("left", "right", "up", "down")
+	velocity = input_direction.normalized() * speed
 	# Handle shooting logic. This is best done in _process as it's not a physics action.
 	if Input.is_action_pressed("attack1"):
 		_shoot(BULLET_SCENE)
 	if Input.is_action_pressed("attack2"):
 		_shoot(LIGHTNING_SCENE)
-		
 	# Update the sprite animation based on player state.
 	_set_sprite_animation()
 
 func _physics_process(_delta):
-	# Get the input direction for movement.
-	var input_direction = Input.get_vector("left", "right", "up", "down")
-	velocity = input_direction.normalized() * speed
-	
 	# Apply the movement.
 	move_and_slide()
-
+	
 ## Helper function to handle shooting logic.
 func _shoot(projectile_scene):
 	var projectile_instance = projectile_scene.instantiate()
 	var projectile_direction = (get_global_mouse_position() - firing_point.global_position).normalized()
-	
 	# Emit a signal to tell the main scene to spawn the projectile.
 	player_shot_bullet.emit(projectile_instance, projectile_direction, bullet_spawn_point.global_position)
-
+	
 ## Helper function to handle sprite animation.
 func _set_sprite_animation():
-	var aiming_direction = (firing_point.get_global_mouse_position() - firing_point.global_position).normalized()
-	
+	aim_direction = (firing_point.get_global_mouse_position() - firing_point.global_position).normalized()
 	# Flip sprite based on aiming direction, not movement direction.
-	if aiming_direction.x < 0:
+	if aim_direction.x < 0:
 		animated_sprite.flip_h = true
-	elif aiming_direction.x > 0:
+	else:
 		animated_sprite.flip_h = false
-
 	# Play the appropriate animation.
 	if velocity.length() > 0:
 		animated_sprite.play("move")

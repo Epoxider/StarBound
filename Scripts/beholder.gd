@@ -1,6 +1,6 @@
-class_name base_enemy extends Area2D
+class_name beholder extends CharacterBody2D
 
-signal enemy_died
+signal died
 signal attacked(amount)
 
 @export var max_health:int = 100
@@ -11,6 +11,7 @@ signal attacked(amount)
 
 enum State { IDLE, CHASE, ATTACK, DEAD }
 var state: State = State.IDLE
+var direction: Vector2 = Vector2.ZERO
 
 @onready var spawn_point:Node2D = $SpawnPoint
 @onready var health:int = max_health
@@ -27,17 +28,20 @@ func _ready():
 	aggro_area.body_entered.connect(_on_body_entered)
 	aggro_area.body_exited.connect(_on_body_exited)
 	attack_timer.wait_time = attack_cooldown
+	_set_sprite_animation("idle")
 
 
 func _process(delta:float) -> void:
 	match state:
 		State.IDLE:
-			_set_sprite_animation("idle")
+			#_set_sprite_animation("idle")
+			pass
 		State.CHASE:
 			_chase_player(delta)
 		State.ATTACK:
 			attack_player()
 		State.DEAD:
+			#_die()
 			pass
 
 
@@ -48,7 +52,7 @@ func _chase_player(delta:float) -> void:
 	
 	var direction = (player.global_position - global_position).normalized()
 	position += direction * speed * delta
-	_set_sprite_animation("walk")
+	#_set_sprite_animation("walk")
 
 	if global_position.distance_to(player.global_position) < 32:
 		state = State.ATTACK
@@ -57,28 +61,27 @@ func _chase_player(delta:float) -> void:
 func attack_player() -> void:
 	if attack_timer.is_stopped():
 		# Will need to add new attack code for unique inherited enemies
-		_set_sprite_animation("attack")
+		#_set_sprite_animation("attack")
 		emit_signal("attacked", attack_damage)
 		attack_timer.start()
 
 
 func take_damage(damage:int) -> void:
+	print("**entered func 'take_damage'**")
 	health -= damage
 	health = max(health, 0)
 	_update_health_bar()
 
 	if health <= 0 and state != State.DEAD:
 		state = State.DEAD
-		emit_signal("died")
 		_die()
-
 
 func _die() -> void:
 	_set_sprite_animation("death")
-	body_collision.disabled = true
-	aggro_area.monitoring = false
+	body_collision.call_deferred("set_disabled", true)
+	aggro_area.set_deferred("monitoring", false)
 	await sprite.animation_finished
-	queue_free()
+	emit_signal("died")
 
 
 func _update_health_bar() -> void:
@@ -94,14 +97,20 @@ func _set_sprite_animation(anim:String) -> void:
 
 # --- Signal Handlers ---
 func _on_body_entered(body:Node) -> void:
+	if state == State.DEAD:
+		return
 	if body.is_in_group("player"):
 		player = body
 		state = State.CHASE
 
+
 func _on_body_exited(body:Node) -> void:
+	if state == State.DEAD:
+		return
 	if body == player:
 		player = null
 		state = State.IDLE
+
 		
 func spawn_enemy() -> void:
 	global_position = spawn_point.global_position
