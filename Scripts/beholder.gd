@@ -29,12 +29,13 @@ func _ready():
 	aggro_area.body_exited.connect(_on_body_exited)
 	attack_timer.wait_time = attack_cooldown
 	_set_sprite_animation("idle")
+	_update_health_bar()
 
 
 func _process(delta:float) -> void:
+	_set_sprite_direction()
 	match state:
 		State.IDLE:
-			#_set_sprite_animation("idle")
 			pass
 		State.CHASE:
 			_chase_player(delta)
@@ -91,6 +92,8 @@ func _update_health_bar() -> void:
 func _set_sprite_animation(anim:String) -> void:
 	if sprite.animation != anim:
 		sprite.play(anim)
+		
+func _set_sprite_direction() -> void:
 	if sprite.flip_h != (player and player.global_position.x < global_position.x):
 		sprite.flip_h = not sprite.flip_h
 
