@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cu62yqn5jybmm"]
+
+[ext_resource type="Script" path="res://Scripts/manager.gd" id="1_4qqad"]
+[ext_resource type="PackedScene" uid="uid://d1rnukwicby7a" path="res://Scenes/level1.tscn" id="2_s2bo8"]
+[ext_resource type="PackedScene" uid="uid://vd7xhee2h0td" path="res://Scenes/player.tscn" id="3_dxuyr"]
+[ext_resource type="Script" path="res://Scripts/GameStateManager.gd" id="4_06n7p"]
+
+[node name="Manager" type="Node2D"]
+script = ExtResource("1_4qqad")
+level1 = ExtResource("2_s2bo8")
+
+[node name="StageParent" type="Node" parent="."]
+
+[node name="PlayerParent" type="Node" parent="."]
+
+[node name="Player" parent="PlayerParent" instance=ExtResource("3_dxuyr")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameStateManager" type="Node" parent="."]
+script = ExtResource("4_06n7p")
+
+[node name="TransitionManager" type="Node" parent="."]

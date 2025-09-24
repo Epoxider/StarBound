@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bapakf2pmt701"]
+[gd_scene load_steps=9 format=3 uid="uid://d1rnukwicby7a"]
 
-[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_2joys"]
-[ext_resource type="Texture2D" uid="uid://oiifa67cqm2o" path="res://Art/World/Solaria Demo Tiles.png" id="2_no20r"]
-[ext_resource type="PackedScene" uid="uid://vd7xhee2h0td" path="res://Scenes/player.tscn" id="3_uxtbm"]
-[ext_resource type="PackedScene" path="res://Scenes/beholder.tscn" id="5_6qr67"]
-[ext_resource type="Script" path="res://Scripts/BulletManager.gd" id="5_08j6x"]
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_ytt1h"]
+[ext_resource type="Texture2D" uid="uid://oiifa67cqm2o" path="res://Art/World/Solaria Demo Tiles.png" id="2_it3o2"]
+[ext_resource type="Script" path="res://Scripts/BulletManager.gd" id="4_5wcwb"]
+[ext_resource type="PackedScene" path="res://Scenes/beholder.tscn" id="5_cb8ji"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_cehxk"]
 tile_data = PackedInt32Array(0, 458752, 0, 65536, 458752, 1, 131072, 458752, 1, 196608, 458752, 1, 262144, 458752, 2, 1, 524288, 0, 65537, 524288, 1, 131073, 524288, 1, 196609, 524288, 1, 262145, 524288, 2, 2, 589824, 0, 65538, 589824, 1, 131074, 589824, 1, 196610, 589824, 1, 262146, 589824, 2)
@@ -12,7 +11,7 @@ tile_data = PackedInt32Array(0, 458752, 0, 65536, 458752, 1, 131072, 458752, 1, 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uam32"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q8u2b"]
-texture = ExtResource("2_no20r")
+texture = ExtResource("2_it3o2")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -1137,7 +1136,7 @@ sources/0 = SubResource("TileSetAtlasSource_q8u2b")
 pattern_0 = SubResource("TileMapPattern_cehxk")
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_2joys")
+script = ExtResource("1_ytt1h")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_tcjr3")
@@ -1147,16 +1146,17 @@ layer_0/tile_data = PackedInt32Array(131072, 327680, 3, 0, 65536, 7, 65536, 3276
 layer_1/name = "Foliage"
 layer_1/tile_data = PackedInt32Array(524294, 458752, 5, 589830, 458752, 6, 524295, 524288, 5, 589831, 524288, 6, 524304, 458752, 5, 589840, 458752, 6, 524305, 524288, 5, 589841, 524288, 6, 327682, 458752, 0, 393218, 458752, 1, 458754, 458752, 1, 524290, 458752, 1, 589826, 458752, 2, 327683, 524288, 0, 393219, 524288, 1, 458755, 524288, 1, 524291, 524288, 1, 589827, 524288, 2, 327684, 589824, 0, 393220, 589824, 1, 458756, 589824, 1, 524292, 589824, 1, 589828, 589824, 2, 327699, 458752, 0, 393235, 458752, 1, 458771, 458752, 1, 524307, 458752, 1, 589843, 458752, 2, 327700, 524288, 0, 393236, 524288, 1, 458772, 524288, 1, 524308, 524288, 1, 589844, 524288, 2, 327701, 589824, 0, 393237, 589824, 1, 458773, 589824, 1, 524309, 589824, 1, 589845, 589824, 2, -327678, 458752, 0, -262142, 458752, 1, -196606, 458752, 1, -131070, 458752, 1, -65534, 458752, 2, -327677, 524288, 0, -262141, 524288, 1, -196605, 524288, 1, -131069, 524288, 1, -65533, 524288, 2, -327676, 589824, 0, -262140, 589824, 1, -196604, 589824, 1, -131068, 589824, 1, -65532, 589824, 2, 1048580, 851968, 6, 1114116, 851968, 7, 1179652, 851968, 7, 1245188, 851968, 8, 1048581, 917504, 6, 1114117, 917504, 7, 1179653, 917504, 7, 1245189, 917504, 8, 1048582, 917504, 6, 1114118, 917504, 7, 1179654, 917504, 7, 1245190, 917504, 8, 1048583, 983040, 6, 1114119, 983040, 7, 1179655, 983040, 7, 1245191, 983040, 8)
 
-[node name="Player" parent="." instance=ExtResource("3_uxtbm")]
-
 [node name="BulletManager" type="Node2D" parent="."]
-script = ExtResource("5_08j6x")
+script = ExtResource("4_5wcwb")
 
-[node name="Beholder" parent="." instance=ExtResource("5_6qr67")]
+[node name="Beholder" parent="." instance=ExtResource("5_cb8ji")]
 position = Vector2(-40, -177)
 
-[node name="Beholder2" parent="." instance=ExtResource("5_6qr67")]
+[node name="Beholder2" parent="." instance=ExtResource("5_cb8ji")]
 position = Vector2(241, -244)
 
-[node name="Beholder3" parent="." instance=ExtResource("5_6qr67")]
+[node name="Beholder3" parent="." instance=ExtResource("5_cb8ji")]
 position = Vector2(359, -24)
+
+[node name="PlayerSpawnPt" type="Node2D" parent="."]
+position = Vector2(-142, 73)
