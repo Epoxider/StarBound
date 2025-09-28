@@ -70,15 +70,13 @@ func take_damage(damage:int) -> void:
 	if health <= 0 and state != State.DEAD:
 		state = State.DEAD
 		emit_signal("died")
-		_die()
 
 
-func _die() -> void:
+func die() -> void:
 	_set_sprite_animation("death")
 	body_collision.disabled = true
 	aggro_area.monitoring = false
 	await sprite.animation_finished
-	queue_free()
 
 
 func _update_health_bar() -> void:

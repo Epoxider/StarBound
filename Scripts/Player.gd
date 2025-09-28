@@ -49,14 +49,18 @@ func _shoot(projectile_scene):
 func _set_sprite_animation():
 	aim_direction = (firing_point.get_global_mouse_position() - firing_point.global_position).normalized()
 	# Flip sprite based on aiming direction, not movement direction.
-	if aim_direction.x < 0:
+	if velocity.x < 0:
 		animated_sprite.flip_h = true
-	else:
+	elif velocity.x > 0:
 		animated_sprite.flip_h = false
 	# Play the appropriate animation.
 	if velocity.length() > 0:
 		animated_sprite.play("move")
 	elif Input.is_action_pressed("attack1"):
+		if aim_direction.x < 0:
+			animated_sprite.flip_h = true
+		else:
+			animated_sprite.flip_h = false
 		animated_sprite.play("attack")
 	else:
 		animated_sprite.play("idle")
