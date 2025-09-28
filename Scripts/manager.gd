@@ -24,7 +24,11 @@ func load_level(level_scene: PackedScene):
 	
 	# instance the new level
 	var level_instance = level_scene.instantiate()
+	print("loading level")
 	stage_parent.add_child(level_instance)
+	for child in stage_parent.get_children():
+		print(" -", child.name)
+
 	current_level = level_instance
 	
 	await get_tree().process_frame
@@ -36,4 +40,7 @@ func load_level(level_scene: PackedScene):
 	
 	# set up camera
 	camera.make_current()
+	# connect enemy signals
+	var gsm = get_node("GameStateManager")  # adjust path if needed
+	gsm.connect_enemy_signals()
 	#camera.set_target(player)

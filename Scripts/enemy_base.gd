@@ -1,6 +1,6 @@
 class_name base_enemy extends Area2D
 
-signal enemy_died
+signal died
 signal attacked(amount)
 
 @export var max_health:int = 100
