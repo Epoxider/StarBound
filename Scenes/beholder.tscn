@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://co63ed12l7j4j"]
+[gd_scene load_steps=20 format=3 uid="uid://drik86jaw35tl"]
 
 [ext_resource type="Script" path="res://Scripts/beholder.gd" id="1_ffoma"]
 [ext_resource type="Texture2D" uid="uid://3xhwxd62b28y" path="res://Art/beholder.png" id="2_xleq3"]
@@ -134,9 +134,10 @@ max_health = 200
 sprite_frames = SubResource("SpriteFrames_q6n7u")
 animation = &"death"
 autoplay = "idle"
+offset = Vector2(-6.28, -2.91)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7, 4)
+position = Vector2(2.08165e-12, 2.08165e-12)
 shape = SubResource("CircleShape2D_f2qsv")
 
 [node name="SpawnPoint" type="Node2D" parent="."]
