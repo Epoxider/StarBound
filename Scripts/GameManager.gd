@@ -1,20 +1,18 @@
-extends Node2D
+extends Node
 
 @export var level1 : PackedScene
 
-@onready var stage_parent: Node = $StageParent
-@onready var player: Node2D = $PlayerParent/Player
-@onready var camera: Camera2D = $Camera2D
+@onready var stage_parent: Node = get_parent().get_node("StageParent")
+@onready var player: Node2D = get_parent().get_node("PlayerParent/Player")
+@onready var camera: Camera2D = get_parent().get_node("Camera2D")
 
-var current_level: Node = null
 
 func _ready():
-	#player.player_shot_bullet.connect(_on_player_shoot)
-	#load_level(level1)
-	pass
+	player.player_shot_bullet.connect(_on_player_shoot)
+	load_level(level1)
 
 func _process(_delta):
-	#camera.global_position = player.global_position
+	camera.global_position = player.global_position
 	pass
 
 func load_level(level_scene: PackedScene):
@@ -29,7 +27,7 @@ func load_level(level_scene: PackedScene):
 	for child in stage_parent.get_children():
 		print(" -", child.name)
 
-	current_level = level_instance
+	#var current_level = level_instance
 	
 	await get_tree().process_frame
 	

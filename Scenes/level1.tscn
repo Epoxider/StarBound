@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_ytt1h"]
 [ext_resource type="Texture2D" uid="uid://oiifa67cqm2o" path="res://Art/World/Solaria Demo Tiles.png" id="2_it3o2"]
 [ext_resource type="Script" path="res://Scripts/BulletManager.gd" id="4_5wcwb"]
-[ext_resource type="PackedScene" path="res://Scenes/beholder.tscn" id="5_cb8ji"]
+[ext_resource type="PackedScene" uid="uid://drik86jaw35tl" path="res://Scenes/beholder.tscn" id="5_cb8ji"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_cehxk"]
 tile_data = PackedInt32Array(0, 458752, 0, 65536, 458752, 1, 131072, 458752, 1, 196608, 458752, 1, 262144, 458752, 2, 1, 524288, 0, 65537, 524288, 1, 131073, 524288, 1, 196609, 524288, 1, 262145, 524288, 2, 2, 589824, 0, 65538, 589824, 1, 131074, 589824, 1, 196610, 589824, 1, 262146, 589824, 2)
@@ -1137,6 +1137,7 @@ pattern_0 = SubResource("TileMapPattern_cehxk")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ytt1h")
+enemy = ExtResource("5_cb8ji")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_tcjr3")
@@ -1160,3 +1161,6 @@ position = Vector2(359, -24)
 
 [node name="PlayerSpawnPt" type="Node2D" parent="."]
 position = Vector2(-142, 73)
+
+[node name="EnemySpawnPt" type="Node2D" parent="."]
+position = Vector2(642, -433)

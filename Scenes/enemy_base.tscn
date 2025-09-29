@@ -13,9 +13,6 @@ script = ExtResource("1_mbge3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_f2qsv")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-animation = &""
-
 [node name="SpawnPoint" type="Node2D" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="."]

@@ -51,7 +51,7 @@ func _chase_player(delta:float) -> void:
 		state = State.IDLE
 		return
 	
-	var direction = (player.global_position - global_position).normalized()
+	direction = (player.global_position - global_position).normalized()
 	position += direction * speed * delta
 	#_set_sprite_animation("walk")
 
