@@ -9,7 +9,7 @@ var direction: Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	body_entered.connect(_on_body_entered)
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -19,7 +19,12 @@ func _process(delta):
 func _on_body_entered(body):
 	if body.has_method("take_damage"):
 		body.take_damage(damage)
-	queue_free()
+		print("BODY TAKING DAMAGE")
+	if body.is_in_group("player"):
+		print("*********PROJECTILE HIT PLAYER********")
+		pass
+	else:
+		queue_free()
 
 	
 func _set_sprite_animation():

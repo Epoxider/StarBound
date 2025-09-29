@@ -21,13 +21,9 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	print(body)
 	if body.is_in_group("enemies"):
 		body.take_damage(damage)
-		print('collision detected')
-		queue_free()
-	else:
-		queue_free()
+	queue_free()
 
 func _set_sprite_animation():
 	# Flip sprite based on aiming direction, not movement direction.

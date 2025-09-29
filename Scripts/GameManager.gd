@@ -22,10 +22,7 @@ func load_level(level_scene: PackedScene):
 	
 	# instance the new level
 	var level_instance = level_scene.instantiate()
-	print("loading level")
 	stage_parent.add_child(level_instance)
-	for child in stage_parent.get_children():
-		print(" -", child.name)
 
 	#var current_level = level_instance
 	
@@ -48,7 +45,6 @@ func _connect_enemy_signals():
 	main_scene.enemy_spawned.connect(_on_enemy_spawn)
 	# Connect to all pre loaded enemies in current level
 	for enemy in get_tree().get_nodes_in_group("enemies"):
-		print("found enemy")
 		if enemy.has_signal("died"):
 			enemy.died.connect(_on_enemy_died.bind(enemy))
 
@@ -59,10 +55,8 @@ func _on_player_shoot(bullet, in_direction, in_position):
 	bullet.direction = in_direction * bullet.speed
 	
 func _on_enemy_died(enemy_node):
-	print("Enemy died:", enemy_node.name)
 	enemy_node.queue_free()
 	
 func _on_enemy_spawn(enemy):
 	if enemy.has_signal("died"):
-		print("New enemy spawned")
 		enemy.died.connect(_on_enemy_died.bind(enemy))

@@ -42,6 +42,8 @@ func _physics_process(_delta):
 func _shoot(projectile_scene):
 	var projectile_instance = projectile_scene.instantiate()
 	var projectile_direction = (get_global_mouse_position() - firing_point.global_position).normalized()
+	#projectile_instance.body_entered.connect(projectile_instance._on_body_entered)
+	#print("Connected signal manually before adding to scene")
 	# Emit a signal to tell the main scene to spawn the projectile.
 	player_shot_bullet.emit(projectile_instance, projectile_direction, bullet_spawn_point.global_position)
 	

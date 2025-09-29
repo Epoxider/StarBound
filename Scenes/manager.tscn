@@ -7,7 +7,6 @@
 
 [node name="Manager" type="Node2D"]
 script = ExtResource("1_4qqad")
-level1 = ExtResource("2_s2bo8")
 
 [node name="StageParent" type="Node" parent="."]
 

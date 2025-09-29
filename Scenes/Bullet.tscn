@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://c3vxouf0c8h45"]
 
-[ext_resource type="Script" path="res://Scripts/Bullet.gd" id="1_0fnjo"]
+[ext_resource type="Script" path="res://Scripts/FireBird.gd" id="1_0fnjo"]
 [ext_resource type="Texture2D" uid="uid://xfk8xfetfvrd" path="res://Art/SpellEffects/Thunder Effect 01/Projectile 2/Projectile 2 wo blur.png" id="2_13p8p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_04o5h"]
