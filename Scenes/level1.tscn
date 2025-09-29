@@ -1151,16 +1151,16 @@ layer_1/tile_data = PackedInt32Array(524294, 458752, 5, 589830, 458752, 6, 52429
 script = ExtResource("4_5wcwb")
 
 [node name="Beholder" parent="." instance=ExtResource("5_cb8ji")]
-position = Vector2(-40, -177)
+position = Vector2(651, -225)
 
 [node name="Beholder2" parent="." instance=ExtResource("5_cb8ji")]
-position = Vector2(241, -244)
+position = Vector2(658, -92)
 
 [node name="Beholder3" parent="." instance=ExtResource("5_cb8ji")]
-position = Vector2(359, -24)
+position = Vector2(660, 53)
 
 [node name="PlayerSpawnPt" type="Node2D" parent="."]
-position = Vector2(-142, 73)
+position = Vector2(-233, -215)
 
 [node name="EnemySpawnPt" type="Node2D" parent="."]
 position = Vector2(642, -433)
