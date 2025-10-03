@@ -1,6 +1,7 @@
 extends Node
 
 @export var level1 : PackedScene
+@export var level2 : PackedScene
 
 @onready var stage_parent: Node = get_parent().get_node("StageParent")
 @onready var player: Node2D = get_parent().get_node("PlayerParent/Player")
@@ -9,7 +10,7 @@ extends Node
 
 func _ready():
 	player.player_shot_bullet.connect(_on_player_shoot)
-	load_level(level1)
+	load_level(level2)
 
 func _process(_delta):
 	camera.global_position = player.global_position
@@ -45,6 +46,7 @@ func _connect_enemy_signals():
 	main_scene.enemy_spawned.connect(_on_enemy_spawn)
 	# Connect to all pre loaded enemies in current level
 	for enemy in get_tree().get_nodes_in_group("enemies"):
+		print(enemy)
 		if enemy.has_signal("died"):
 			enemy.died.connect(_on_enemy_died.bind(enemy))
 
@@ -55,6 +57,8 @@ func _on_player_shoot(bullet, in_direction, in_position):
 	bullet.direction = in_direction * bullet.speed
 	
 func _on_enemy_died(enemy_node):
+	if enemy_node is spirit:
+		load_level(level1)
 	enemy_node.queue_free()
 	
 func _on_enemy_spawn(enemy):

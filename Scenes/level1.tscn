@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://d1rnukwicby7a"]
+[gd_scene load_steps=10 format=3 uid="uid://d1rnukwicby7a"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_ytt1h"]
 [ext_resource type="Texture2D" uid="uid://oiifa67cqm2o" path="res://Art/World/Solaria Demo Tiles.png" id="2_it3o2"]
 [ext_resource type="Script" path="res://Scripts/BulletManager.gd" id="4_5wcwb"]
 [ext_resource type="PackedScene" uid="uid://drik86jaw35tl" path="res://Scenes/beholder.tscn" id="5_cb8ji"]
+[ext_resource type="PackedScene" uid="uid://dbtkj0e5363ju" path="res://Scenes/spirit.tscn" id="5_p82dp"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_cehxk"]
 tile_data = PackedInt32Array(0, 458752, 0, 65536, 458752, 1, 131072, 458752, 1, 196608, 458752, 1, 262144, 458752, 2, 1, 524288, 0, 65537, 524288, 1, 131073, 524288, 1, 196609, 524288, 1, 262145, 524288, 2, 2, 589824, 0, 65538, 589824, 1, 131074, 589824, 1, 196610, 589824, 1, 262146, 589824, 2)
@@ -1164,3 +1165,6 @@ position = Vector2(-233, -215)
 
 [node name="EnemySpawnPt" type="Node2D" parent="."]
 position = Vector2(642, -433)
+
+[node name="Spirit" parent="." instance=ExtResource("5_p82dp")]
+position = Vector2(256, -314)

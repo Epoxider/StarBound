@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cu62yqn5jybmm"]
+[gd_scene load_steps=6 format=3 uid="uid://cu62yqn5jybmm"]
 
 [ext_resource type="Script" path="res://Scripts/manager.gd" id="1_4qqad"]
 [ext_resource type="PackedScene" uid="uid://d1rnukwicby7a" path="res://Scenes/level1.tscn" id="2_s2bo8"]
 [ext_resource type="PackedScene" uid="uid://vd7xhee2h0td" path="res://Scenes/player.tscn" id="3_dxuyr"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="4_pi7op"]
+[ext_resource type="PackedScene" uid="uid://c0mv8e6r2cjry" path="res://Scenes/level2.tscn" id="5_vn3eb"]
 
 [node name="Manager" type="Node2D"]
 script = ExtResource("1_4qqad")
@@ -24,3 +25,4 @@ zoom = Vector2(2.5, 2.5)
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("4_pi7op")
 level1 = ExtResource("2_s2bo8")
+level2 = ExtResource("5_vn3eb")
