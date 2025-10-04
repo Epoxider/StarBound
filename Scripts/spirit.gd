@@ -53,9 +53,8 @@ func _chase_player(delta:float) -> void:
 	
 	direction = (player.global_position - global_position).normalized()
 	position += direction * speed * delta
-	#_set_sprite_animation("walk")
 
-	if global_position.distance_to(player.global_position) < 32:
+	if global_position.distance_to(player.global_position) < 1:
 		state = State.ATTACK
 
 

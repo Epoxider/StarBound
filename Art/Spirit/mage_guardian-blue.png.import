@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bw54hg073r3ju"
-path="res://.godot/imported/mage_guardian-blue.png-752588afeca4cfed756a657898d8e176.ctex"
+path="res://.godot/imported/mage_guardian-blue.png-a279bf4a416c4d665be1bc90348a8b89.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/NPC_Mage/mage_guardian-blue.png"
-dest_files=["res://.godot/imported/mage_guardian-blue.png-752588afeca4cfed756a657898d8e176.ctex"]
+source_file="res://Art/Spirit/mage_guardian-blue.png"
+dest_files=["res://.godot/imported/mage_guardian-blue.png-a279bf4a416c4d665be1bc90348a8b89.ctex"]
 
 [params]
 
