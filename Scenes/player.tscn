@@ -1,9 +1,12 @@
-[gd_scene load_steps=31 format=3 uid="uid://vd7xhee2h0td"]
+[gd_scene load_steps=56 format=3 uid="uid://vd7xhee2h0td"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_6hnii"]
 [ext_resource type="Texture2D" uid="uid://bmflwjmgt1w0f" path="res://Art/EvilWizard/Sprites/Attack.png" id="2_r30ts"]
 [ext_resource type="Texture2D" uid="uid://b2p83mesrbard" path="res://Art/EvilWizard/Sprites/Idle.png" id="3_7tpb6"]
 [ext_resource type="Texture2D" uid="uid://4qk0n722r1rq" path="res://Art/EvilWizard/Sprites/Move.png" id="4_soc1y"]
+[ext_resource type="Texture2D" uid="uid://ctivpll7w18x2" path="res://Art/Samurai/Sprites/Attack1.png" id="5_y0b7g"]
+[ext_resource type="Texture2D" uid="uid://rdif2kj77hdu" path="res://Art/Samurai/Sprites/Idle.png" id="6_q8k6b"]
+[ext_resource type="Texture2D" uid="uid://dhbdiqigatx12" path="res://Art/Samurai/Sprites/Run.png" id="7_xtlv6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhjfw"]
 size = Vector2(30, 39)
@@ -104,6 +107,94 @@ region = Rect2(900, 0, 150, 150)
 atlas = ExtResource("4_soc1y")
 region = Rect2(1050, 0, 150, 150)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_flp0n"]
+atlas = ExtResource("5_y0b7g")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndfsi"]
+atlas = ExtResource("5_y0b7g")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_068po"]
+atlas = ExtResource("5_y0b7g")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqgm8"]
+atlas = ExtResource("5_y0b7g")
+region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ax70v"]
+atlas = ExtResource("5_y0b7g")
+region = Rect2(800, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lph4m"]
+atlas = ExtResource("5_y0b7g")
+region = Rect2(1000, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t33e6"]
+atlas = ExtResource("6_q8k6b")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2dd1"]
+atlas = ExtResource("6_q8k6b")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucvmv"]
+atlas = ExtResource("6_q8k6b")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rt64x"]
+atlas = ExtResource("6_q8k6b")
+region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wixag"]
+atlas = ExtResource("6_q8k6b")
+region = Rect2(800, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dn2gy"]
+atlas = ExtResource("6_q8k6b")
+region = Rect2(1000, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yu55t"]
+atlas = ExtResource("6_q8k6b")
+region = Rect2(1200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vjlm"]
+atlas = ExtResource("6_q8k6b")
+region = Rect2(1400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axdil"]
+atlas = ExtResource("7_xtlv6")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xiae1"]
+atlas = ExtResource("7_xtlv6")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xi1e5"]
+atlas = ExtResource("7_xtlv6")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6cth"]
+atlas = ExtResource("7_xtlv6")
+region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvdq3"]
+atlas = ExtResource("7_xtlv6")
+region = Rect2(800, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_422xt"]
+atlas = ExtResource("7_xtlv6")
+region = Rect2(1000, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aleey"]
+atlas = ExtResource("7_xtlv6")
+region = Rect2(1200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hik5"]
+atlas = ExtResource("7_xtlv6")
+region = Rect2(1400, 0, 200, 200)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_iqoen"]
 animations = [{
 "frames": [{
@@ -192,6 +283,87 @@ animations = [{
 "loop": true,
 "name": &"move",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flp0n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndfsi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_068po")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqgm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ax70v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lph4m")
+}],
+"loop": true,
+"name": &"samurai_atk1",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t33e6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2dd1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucvmv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rt64x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wixag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dn2gy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yu55t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vjlm")
+}],
+"loop": true,
+"name": &"samurai_idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axdil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xiae1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xi1e5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6cth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvdq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_422xt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aleey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hik5")
+}],
+"loop": true,
+"name": &"samurai_move",
+"speed": 15.0
 }]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
@@ -214,5 +386,6 @@ position = Vector2(70, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_iqoen")
-animation = &"attack"
+animation = &"samurai_atk1"
 autoplay = "idle"
+frame_progress = 0.32686

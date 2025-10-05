@@ -17,4 +17,3 @@ func _spawn_enemy(timer):
 		add_child(enemy_instance)
 		emit_signal("enemy_spawned", enemy_instance)
 		await get_tree().create_timer(timer).timeout
-
