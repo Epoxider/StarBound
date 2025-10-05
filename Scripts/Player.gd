@@ -2,7 +2,7 @@ class_name Player extends CharacterBody2D
 
 ## Signal to be emitted when the player shoots a projectile.
 signal player_attacked
-signal player_died
+#signal player_died
 signal player_shot_bullet(bullet_instance, rotation, position)
 
 enum State {IDLE, ATTACK, MOVE, DEAD}
