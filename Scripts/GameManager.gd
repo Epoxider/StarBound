@@ -3,14 +3,20 @@ extends Node
 @export var level1 : PackedScene
 @export var level2 : PackedScene
 
+@onready var num_levels = 2
+@onready var current_level: int = 0
 @onready var stage_parent: Node = get_parent().get_node("StageParent")
 @onready var player: Node2D = get_parent().get_node("PlayerParent/Player")
 @onready var camera: Camera2D = get_parent().get_node("Camera2D")
 
+var level_array: Array[PackedScene]
+
 
 func _ready():
 	player.player_shot_bullet.connect(_on_player_shoot)
-	load_level(level2)
+	level_array.push_back(level1)
+	level_array.push_back(level2)
+	load_level(level_array[current_level])
 
 func _process(_delta):
 	camera.global_position = player.global_position
@@ -58,7 +64,9 @@ func _on_player_shoot(bullet, in_direction, in_position):
 	
 func _on_enemy_died(enemy_node):
 	if enemy_node is spirit:
-		load_level(level1)
+		current_level = (current_level + 1) % num_levels
+		#load_level(level_array[current_level])
+		call_deferred("load_level", level_array[current_level])
 	enemy_node.queue_free()
 	
 func _on_enemy_spawn(enemy):

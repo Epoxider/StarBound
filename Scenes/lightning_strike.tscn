@@ -1,0 +1,116 @@
+[gd_scene load_steps=18 format=3 uid="uid://7v6we4a6gogv"]
+
+[ext_resource type="Script" path="res://Scripts/projectile.gd" id="1_pvyk0"]
+[ext_resource type="Texture2D" uid="uid://0yvj6ladjm55" path="res://Art/SpellEffects/ThunderEffects2/Thunder Strike/Thunderstrike wo blur.png" id="2_7qbun"]
+[ext_resource type="Texture2D" uid="uid://by1tutapogyp4" path="res://Art/SpellEffects/ThunderEffects2/Thunder Strike/Thunderstrike w blur.png" id="3_mxn5m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17le3"]
+size = Vector2(25, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30o2m"]
+atlas = ExtResource("2_7qbun")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l74b3"]
+atlas = ExtResource("2_7qbun")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vuii"]
+atlas = ExtResource("2_7qbun")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6w14p"]
+atlas = ExtResource("2_7qbun")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hdt4"]
+atlas = ExtResource("3_mxn5m")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7q1vy"]
+atlas = ExtResource("3_mxn5m")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65ier"]
+atlas = ExtResource("3_mxn5m")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jinaf"]
+atlas = ExtResource("3_mxn5m")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02tcu"]
+atlas = ExtResource("3_mxn5m")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gs0no"]
+atlas = ExtResource("3_mxn5m")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkywo"]
+atlas = ExtResource("3_mxn5m")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gav16"]
+atlas = ExtResource("3_mxn5m")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_afq8e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30o2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l74b3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vuii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6w14p")
+}],
+"loop": false,
+"name": &"startup",
+"speed": 18.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hdt4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7q1vy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65ier")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jinaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02tcu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gs0no")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkywo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gav16")
+}],
+"loop": true,
+"name": &"strikeloop",
+"speed": 18.0
+}]
+
+[node name="lightning_strike" type="Area2D"]
+script = ExtResource("1_pvyk0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -2.5)
+shape = SubResource("RectangleShape2D_17le3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_afq8e")
+animation = &"strikeloop"
