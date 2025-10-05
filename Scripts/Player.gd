@@ -20,7 +20,6 @@ var aim_direction: Vector2 = Vector2.ZERO
 
 # Projectile resources.
 const BULLET_SCENE = preload("res://Scenes/bullet.tscn")
-const LIGHTNING_SCENE = preload("res://Scenes/lightning_spell.tscn")
 
 func _ready():
 	player_attacked.connect(_on_player_attack)
@@ -34,8 +33,6 @@ func _process(_delta):
 	# Handle shooting logic. This is best done in _process as it's not a physics action.
 	if Input.is_action_pressed("attack1"):
 		_shoot(BULLET_SCENE)
-	if Input.is_action_pressed("attack2"):
-		_shoot(LIGHTNING_SCENE)
 	# Update the sprite animation based on player state.
 	_set_sprite_animation()
 
